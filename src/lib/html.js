@@ -1,4 +1,9 @@
-import { teams } from "../generate.js";
+/**
+ * Býr til HTML síðu með title og body
+ * @param {string} title - Titill HTML síðunnar
+ * @param {string} body - Body HTML síðunnar
+ * @returns {string} HTML template-ið
+ */
 function template(title, body) {
   const html = /* html */ `
   <html>
@@ -13,7 +18,13 @@ function template(title, body) {
 
   return html;
 }
+//ATH ég gat ekki fyrir mitt litla líf fengið css skrána
+//til að virka, því er útlitið á verkefninu ekki uppá marga fiska, því miður.
 
+/**
+ * Býr til index síðu Boltadeildarinnar
+ * @returns {string} template-ið fyrir index síðuna
+ */
 export function indexTemplate() {
   const title = "Boltadeildin—forsíða!";
   const body = /* html */ `
@@ -30,6 +41,11 @@ export function indexTemplate() {
   return template(title, body);
 }
 
+/**
+ * Býr til síðu með stöðu Boltadeildarinnar
+ * @param {Object} standings - Stöðutafla Boltadeildarinnar
+ * @returns {string} Template-ið fyrir stöðutöfluna
+ */
 export function stadaTemplate(standings) {
   const title = "Boltadeildin—staðan!";
 
@@ -48,6 +64,11 @@ export function stadaTemplate(standings) {
   return template(title, body);
 }
 
+/**
+ * Býr til síðu með leikjum Boltadeildarinnar
+ * @param {Array} data - Leikir vikunanr
+ * @returns {string} Template-ið fyrir leikjasíðuna
+ */
 export function leikirTemplate(data) {
   const title = "Boltadeildin—leikir!";
   let gamesHtml = "<table><tr><th>Heimalið</th><th>Útilið</th><th>Úrslit</th></tr>";

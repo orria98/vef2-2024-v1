@@ -1,3 +1,8 @@
+/**
+ * Reiknar út stöðu deildarinnar út frá leikjunum
+ * @param {Array} data - Upplýsingar um leikina
+ * @returns {Object} - Stöðutaflan
+ */
 import { teams } from '../generate.js';
 export function calculateStandings(data) {
   const standings = {};
