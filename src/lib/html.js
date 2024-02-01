@@ -1,3 +1,4 @@
+import { teams } from '../generate.js';
 /**
  * Býr til HTML síðu með title og body
  * @param {string} title - Titill HTML síðunnar
