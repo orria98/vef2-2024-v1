@@ -13,22 +13,22 @@ export function parseGameday(data) {
   try {
     parsed = JSON.parse(data);
   } catch (e) {
-    console.error('invalid data', e);
+    //console.error('invalid data', e);
     return null;
   }
 
   if (!parsed) {
-    console.warn('parsed data is not an object');
+    //console.warn('parsed data is not an object');
     return null;
   }
 
   if (!parsed.games) {
-    console.warn('missing games array');
+    //console.warn('missing games array');
     return null;
   }
 
   if (!parsed.date) {
-    console.warn('missing date string');
+    //console.warn('missing date string');
     return null;
   }
 

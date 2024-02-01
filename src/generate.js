@@ -7,11 +7,13 @@ import {
 } from './lib/file.js';
 
 import { indexTemplate, leikirTemplate, stadaTemplate } from './lib/html.js';
-import { parseGameday } from './lib/parse.js';
+import { parseGameday, parseTeamsJson } from './lib/parse.js';
 import { calculateStandings } from './lib/score.js';
 
-const INPUT_DIR = './data';
+const INPUT_DIR = '/Users/orri/Desktop/Desktop - Orri’s MacBook Pro/Skóli/verkefni 1 vef2/vef2-2024-v1/data';
+//const INPUT_DIR = './data';   //Þetta virkaði ekki, þannig að ég notaði full path, má breyta við yfirferð
 const OUTPUT_DIR = './dist';
+let teams = [];
 
 async function main() {
   await createDirIfNotExists(OUTPUT_DIR);
@@ -19,6 +21,7 @@ async function main() {
   const files = await readFilesFromDir(INPUT_DIR);
 
   const data = [];
+  teams = [];
 
   for await (const file of files) {
     if (file.indexOf('gameday') < 0) {
@@ -26,16 +29,28 @@ async function main() {
     }
     const fileContents = await readFile(file);
 
-    console.info('parsea skrá', file);
+    //console.info('parsea skrá', file);
     if (!fileContents) {
       continue;
     }
 
     const parsed = parseGameday(fileContents);
 
-    data.push(parsed);
+    if(parsed != null){
+      data.push(parsed);
+    }
   }
 
+  for await (const file of files){
+    if(file.indexOf('teams') < 0){
+      continue;
+    }
+    const teamFiles = await readFile(file);
+    const parsedTeams = parseTeamsJson(teamFiles);
+
+    teams.push(...parsedTeams);
+
+  }
   const calculatedStandings = calculateStandings(data);
 
   // `data` er fylki af parsed gögnum sem við viljum
@@ -58,3 +73,5 @@ async function main() {
 main().catch((error) => {
   console.error('error generating', error);
 });
+
+export { teams };
