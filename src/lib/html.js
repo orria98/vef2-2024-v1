@@ -80,8 +80,7 @@ export function leikirTemplate(data) {
       if (game.home.score < 0 || game.away.score < 0) {
         continue;
       }
-      gamesHtml += `<tr><td>${game.home.name}</td><td>${game.away.name}</td><td>${game.home.score} - ${game.away.score}</td></tr>`;
-    }
+      gamesHtml += `<tr><td>${game.home.name}</td><td>${game.away.name}</td><td>${game.home.score}</td></tr>`;    }
   }
 
   gamesHtml += "</table>";
