@@ -4,7 +4,7 @@ import { indexTemplate } from './html';
 describe('html', () => {
   describe('indexTemplate', () => {
     it('should have a test', () => {
-      // TODO laga þetta test
+
       expect(indexTemplate().length).toBeGreaterThan(1);
     });
   });

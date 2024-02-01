@@ -4,7 +4,7 @@ function template(title, body) {
   <html>
     <head>
       <title>${title}</title>
-      <link rel="stylesheet" type="text/css" ./public/styles.css">
+      <link rel="stylesheet" type="text/css" "/styles.css">
     </head>
     <body>
       ${body}
@@ -19,9 +19,11 @@ export function indexTemplate() {
   const body = /* html */ `
   <section>
     <h1>Velkomin í Boltadeildina!</h1>
+    <p>Hér finnur þú allar upplýsingar um deildina.</p>
+    <p>Hér fyrir neðan getur þú smellt til að sjá seinustu leiki og stöðuna í deildinni</p>
     <ul>
-      <li><a href="leikir.html">Seinustu leikir</a></li>
-      <li><a href="stada.html">Staðan í deildinni</a></li>
+      <li><a href="leikir.html">Smelltu hér til að sjá seinustu leiki</a></li>
+      <li><a href="stada.html">Smelltu hér til að sjá stöðuna í deildinni</a></li>
     </ul>
   </section>`;
 
@@ -31,7 +33,7 @@ export function indexTemplate() {
 export function stadaTemplate(standings) {
   const title = "Boltadeildin—staðan!";
 
-  let standingsHtml = "<table><tr><th>Team</th><th>Score</th></tr>";
+  let standingsHtml = "<table><tr><th>Lið</th><th>Stig</th></tr>";
   for (const team in standings) {
     standingsHtml += `<tr><td>${team}</td><td>${standings[team]}</td></tr>`;
   }
@@ -48,7 +50,7 @@ export function stadaTemplate(standings) {
 
 export function leikirTemplate(data) {
   const title = "Boltadeildin—leikir!";
-  let gamesHtml = "<table><tr><th>Home</th><th>Away</th><th>Result</th></tr>";
+  let gamesHtml = "<table><tr><th>Heimalið</th><th>Útilið</th><th>Úrslit</th></tr>";
 
   for (const item of data) {
     gamesHtml += `<tr><td>${item.date}</td></tr>`;
