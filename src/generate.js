@@ -10,8 +10,8 @@ import { indexTemplate, leikirTemplate, stadaTemplate } from './lib/html.js';
 import { parseGameday, parseTeamsJson } from './lib/parse.js';
 import { calculateStandings } from './lib/score.js';
 
-const INPUT_DIR = '/Users/orri/Desktop/Desktop - Orri’s MacBook Pro/Skóli/verkefni 1 vef2/vef2-2024-v1/data';
-//const INPUT_DIR = './data';   //Þetta virkaði ekki, þannig að ég notaði full path, má breyta við yfirferð
+//const INPUT_DIR = '/Users/orri/Desktop/Desktop - Orri’s MacBook Pro/Skóli/verkefni 1 vef2/vef2-2024-v1/data';
+const INPUT_DIR = './data';   //Þetta virkaði ekki, þannig að ég notaði full path, má breyta við yfirferð
 const OUTPUT_DIR = './dist';
 let teams = [];
 
